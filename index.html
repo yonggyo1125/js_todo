@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script src="js/todo.js"></script>
+        <title>TODO 리스트</title>
+    </head>
+    <body>
+        <h1 class="text-white bg-indigo-500 p-3 mb-4 text-lg border-0">할일 등록</h1>
+        <form name="frmTodo" method="post" autocomplete="off" class="mb-8">
+            <ul class="grid grid-cols-[100px_1fr] gap-4 m-4 p-4 items-center">
+                <li>날짜</li>
+                <li>
+                    <input type="date" name="date" placeholder="날짜 입력" class="w-full border border-gray-200 rounded-md resize-none p-2 outline-none">
+                </li>
+                <li>제목</li>
+                <li>
+                    <input type="text" name="subject" placeholder="제목 입력" class="w-full border border-gray-200 rounded-md resize-none p-2 outline-none">
+                </li>
+                <li>내용</li>
+                <li>
+                    <textarea name="content" placeholder="내용 입력" class="w-full h-25 border border-gray-200 rounded-md resize-none p-4 outline-none"></textarea>
+                </li>
+            </ul>
+            <button type="submit" class="m-auto block bg-blue-500 text-white w-1/2 p-2 rounded-sm hover:bg-blue-800 cursor-pointer">등록하기</button>
+        </form>
+
+        <ul id="todo-items" class="grid md:grid-cols-2"></ul>
+        <script type="text/html" id="tpl-item">
+            <li id="item-${uid}" data-uid="${uid}" class="p-3 m-3 border rounded-sm border-gray-300">
+               <div class="mb-3 text-[#50d71e] font-medium">${subject}</div>
+               <div class="contentflex flex-col justify-between">
+                    <div class="mb-3 p-4 min-h-25 shadow-sm grow-1">${content}</div>
+                    <div class="flex justify-between">
+                        <button type="button" class="bg-red-500 text-white rounded-sm grow h-7 mr-1">삭제</button>
+                        <button type="button" class="bg-indigo-500 text-white rounded-sm grow h-7">수정</button>
+                    </div>
+               </div> 
+            </li>
+        </script>
+    </body>
+</html>
