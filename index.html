@@ -18,7 +18,7 @@
                 </li>
                 <li>제목</li>
                 <li>
-                    <input type="text" name="subject" placeholder="제목 입력" class="w-full border border-gray-200 rounded-md resize-none p-2 outline-none">
+                    <input type="text" name="title" placeholder="제목 입력" class="w-full border border-gray-200 rounded-md resize-none p-2 outline-none">
                 </li>
                 <li>내용</li>
                 <li>
@@ -28,15 +28,17 @@
             <button type="submit" class="m-auto block bg-blue-500 text-white w-1/2 p-2 rounded-sm hover:bg-blue-800 cursor-pointer">등록하기</button>
         </form>
 
-        <ul id="todo-items" class="grid md:grid-cols-2"></ul>
+        <ul id="todo-items" class="grid md:grid-cols-2">
+             
+        </ul>
         <script type="text/html" id="tpl-item">
             <li id="item-${uid}" data-uid="${uid}" class="p-3 m-3 border rounded-sm border-gray-300">
-               <div class="mb-3 text-[#50d71e] font-medium">${subject}</div>
+               <div class="mb-3 text-[#50d71e] font-medium">[${date}] ${title}</div>
                <div class="contentflex flex-col justify-between">
                     <div class="mb-3 p-4 min-h-25 shadow-sm grow-1">${content}</div>
                     <div class="flex justify-between">
-                        <button type="button" class="bg-red-500 text-white rounded-sm grow h-7 mr-1">삭제</button>
-                        <button type="button" class="bg-indigo-500 text-white rounded-sm grow h-7">수정</button>
+                        <button type="button" class="bg-red-500 hover:bg-red-800 text-white rounded-sm grow h-7 mr-1 delete-action cursor-pointer" data-uid="${uid}">삭제</button>
+                        <button type="button" class="bg-indigo-500 hover:bg-indigo-800 text-white rounded-sm grow h-7 edit-action cursor-pointer" data-uid="${uid}">수정</button>
                     </div>
                </div> 
             </li>
